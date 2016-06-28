@@ -3,6 +3,7 @@ from slackbot.bot import listen_to
 import re
 import json
 import libs.web_crawler as web_crawler
+import libs.str
 
 @respond_to('hi', re.IGNORECASE)
 def hi(message):
@@ -26,6 +27,8 @@ def help(message):
 def web(message, keyword=None, web_type=None):
     # refer to https://api.slack.com/docs/message-attachments
     support_types = ['github', 'google']
+    keyword = libs.str.str_encode(keyword)
+    web_type = web_type.lower()
     if web_type == 'github':
         link = 'https://www.github.com/{}'.format(keyword)
         w = web_crawler.web()

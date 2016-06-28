@@ -1,11 +1,9 @@
 import urllib
+import str
 from google import google
 from bs4 import BeautifulSoup
 
 class web(object):
-    def str_encode(self, string):
-        return string.encode('ascii', 'ignore').decode('ascii')
-
     def get_soup(self, link):
         r = urllib.urlopen(link).read()
         soup = BeautifulSoup(r, 'html.parser')
@@ -24,9 +22,9 @@ class web(object):
         search_results = google.search(keyword, n_pages, lang)
         properties = [] 
         for result in search_results[:n_results]:
-            p = {'title':result.name,
+            p = {'title':str.str_encode(result.name),
                  'link':result.link,
-                 'desc':self.str_encode(result.description),
+                 'desc':str.str_encode(result.description),
                  'img':result.thumb}
             properties.append(p)
         return properties 
