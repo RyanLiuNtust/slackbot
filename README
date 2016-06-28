@@ -1,0 +1,7 @@
+**Dependencies**:
+  - [Google-Search-API]
+  - [slackbot]
+
+   [Google-Search-API]: <https://github.com/abenassi/Google-Search-API>
+   [slackbot]: https://github.com/lins05/slackbot
+  
